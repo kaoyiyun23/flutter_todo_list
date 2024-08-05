@@ -54,8 +54,9 @@ class _TodoListScreenState extends State<TodoListScreen> {
       );
       _todos.add(newTodo);
       _user.totalTodos++;
-      await _todoDao.writeTodos(_todos);
-      await _userDao.writeUser(_user);
+      _workNoteService.addTodo(newTodo);
+      /* await _todoDao.writeTodos(_todos);
+      await _userDao.writeUser(_user); */
       _controller.clear();
       setState(() {});
     }
@@ -70,8 +71,9 @@ class _TodoListScreenState extends State<TodoListScreen> {
     }
     _todos.removeAt(index);
     _user.totalTodos--;
-    await _todoDao.writeTodos(_todos);
-    await _userDao.writeUser(_user);
+    _workNoteService.deleteTodoAtIndex(index);
+    /* await _todoDao.writeTodos(_todos);
+    await _userDao.writeUser(_user); */
     setState(() {});
   }
 
