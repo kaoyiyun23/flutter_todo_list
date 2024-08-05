@@ -7,6 +7,8 @@ class WorkNoteService {
   final TodoDaoLocalFile _todoDao = TodoDaoLocalFile();
   final UserDaoLocalFile _userDao = UserDaoLocalFile();
 
+  //新增todo
+  //會去寫入todo.json和user.json
   Future<void> addTodo(Todo todo) async {
     final todos = await _todoDao.readTodos();
     todos.add(todo);
@@ -17,6 +19,8 @@ class WorkNoteService {
     await _userDao.writeUser(user);
   }
 
+  //刪除todo
+  //會去更新todo.json和user.json
   Future<void> deleteTodoAtIndex(int index) async {
     final todos = await _todoDao.readTodos();
     final todo = todos[index];
@@ -31,6 +35,8 @@ class WorkNoteService {
     await _userDao.writeUser(user);
   }
 
+  //更新todo的狀態
+  //會去更新todo.json和user.json
   Future<void> updateTodoStatus(int index, String status) async {
     final todos = await _todoDao.readTodos();
     final todo = todos[index];
