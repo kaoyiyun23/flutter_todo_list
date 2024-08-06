@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/screens/login_screen.dart';
 import 'screens/todolist_screen.dart';
 
 void main() {
@@ -14,9 +15,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
+        "/login": (BuildContext context) => LoginScreen(),
         "/todolist": (BuildContext context) => TodoListScreen()
       },
-      initialRoute: "/todolist",
+      initialRoute: "/login",
     );
   }
 }

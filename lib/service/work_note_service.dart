@@ -3,6 +3,9 @@ import '../models/user.dart';
 import '../daos/todo_dao_local_file.dart';
 import '../daos/user_dao_local_file.dart';
 
+//當用戶新增todo的時候， 會記錄用戶有幾個todo，會記錄todo內容
+//當用戶刪除todo的時候，要減去用戶有幾個todo
+
 class WorkNoteService {
   final TodoDaoLocalFile _todoDao = TodoDaoLocalFile();
   final UserDaoLocalFile _userDao = UserDaoLocalFile();
