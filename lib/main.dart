@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_6/screens/login_screen.dart';
-import 'screens/todolist_screen.dart';
+import 'package:flutter_application_6/screens/todolist_screen.dart';
+import 'package:flutter_application_6/controller/screen_controller.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  final ScreenController screenController = ScreenController();
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Todo App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      routes: {
+        "/login": (BuildContext context) => LoginScreen(),
+        "/todolist": (BuildContext context) => TodoListScreen()
+      },
+      initialRoute: screenController.turnScreen(),
+    );
+  }
+}
+
+/* class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +41,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/login",
     );
   }
-}
+} */
 
 /* import 'package:flutter/material.dart';
 
